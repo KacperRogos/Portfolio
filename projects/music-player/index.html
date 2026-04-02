@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nowoczesny odtwarzacz muzyki z visualizerem i playlistą">
+    <title>SoundWave | Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M15 13v14l10-7z" fill="url(#gradient)"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" style="stop-color:#667eea"/>
+                            <stop offset="100%" style="stop-color:#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>SoundWave</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="shuffleBtn" title="Losuj">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 3M21 7.5H7.5" />
+                    </svg>
+                </button>
+                <button class="btn-icon" id="repeatBtn" title="Powtarzaj">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <div class="player-container">
+            <div class="album-section">
+                <div class="vinyl-container" id="vinylContainer">
+                    <div class="vinyl-disc">
+                        <div class="vinyl-center"></div>
+                        <div class="album-art" id="albumArt">
+                            <img src="https://placehold.co/300x300/667eea/ffffff?text=♪" alt="Album Art" id="albumImage">
+                        </div>
+                    </div>
+                </div>
+                <canvas id="visualizer" class="visualizer"></canvas>
+            </div>
+            <div class="song-info">
+                <h2 class="song-title" id="songTitle">Wybierz utwór</h2>
+                <p class="song-artist" id="songArtist">Nieznany artysta</p>
+                <div class="song-stats">
+                    <span class="stat">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+                        </svg>
+                        <span id="playCount">0</span> odtworzeń
+                    </span>
+                    <span class="stat">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <span id="songDuration">0:00</span>
+                    </span>
+                </div>
+            </div>
+            <div class="progress-section">
+                <div class="time" id="currentTime">0:00</div>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-handle" id="progressHandle"></div>
+                </div>
+                <div class="time" id="totalTime">0:00</div>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="prevBtn" title="Poprzedni">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061A1.125 1.125 0 0 1 21 8.689v8.122ZM11.25 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061a1.125 1.125 0 0 1 1.683.977v8.122Z" />
+                    </svg>
+                </button>
+                <button class="control-btn play-btn" id="playBtn" title="Odtwórz/Pauza">
+                    <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                    </svg>
+                    <svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                        <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7 0a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <button class="control-btn" id="nextBtn" title="Następny">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="volume-section">
+                <button class="btn-icon" id="volumeBtn">
+                    <svg class="volume-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                        <path class="volume-waves" stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                    </svg>
+                </button>
+                <div class="volume-slider">
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                </div>
+                <span class="volume-value" id="volumeValue">70%</span>
+            </div>
+        </div>
+        <div class="playlist-section">
+            <div class="playlist-header">
+                <h3>Playlista</h3>
+                <div class="playlist-actions">
+                    <button class="btn-small" id="clearPlaylistBtn">Wyczyść</button>
+                    <button class="btn-small btn-primary" id="addSongBtn">+ Dodaj</button>
+                </div>
+            </div>
+            <div class="soundcloud-search">
+                <input 
+                    type="text" 
+                    id="soundcloudSearch" 
+                    class="search-input-sc" 
+                    placeholder="Szukaj na iTunes (np. chill, jazz, Taylor Swift)..."
+                >
+                <button class="btn-search" id="searchSoundCloudBtn">Szukaj</button>
+            </div>
+            <div class="genre-buttons">
+                <button class="genre-btn" onclick="loadItunesByGenre('electronic')">Electronic</button>
+                <button class="genre-btn" onclick="loadItunesByGenre('rock')">Rock</button>
+                <button class="genre-btn" onclick="loadItunesByGenre('jazz')">Jazz</button>
+                <button class="genre-btn" onclick="loadItunesByGenre('pop')">Pop</button>
+                <button class="genre-btn" onclick="loadItunesByGenre('chill')">Chill</button>
+                <button class="genre-btn" onclick="loadItunesByGenre('ambient')">Ambient</button>
+            </div>
+            <div class="playlist" id="playlist">
+            </div>
+            <input type="file" id="fileInput" accept="audio/*" multiple style="display: none;">
+        </div>
+        <footer class="footer">
+            <p>Stworzone przez Kacper Rogoś</p>
+            <p class="back-link"><a href="../index.html">← Powrót do portfolio</a></p>
+        </footer>
+    </div>
+    <audio id="audioPlayer" crossorigin="anonymous"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
