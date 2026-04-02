@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kacper Rogoś - Programista specjalizujący się w Angular i React. Portfolio projektów i umiejętności.">
+    <title>Kacper Rogoś | Programista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">KR</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">start</a></li>
+                <li><a href="#about" class="nav-link">o_mnie</a></li>
+                <li><a href="#projects" class="nav-link">projekty</a></li>
+                <li><a href="#skills" class="nav-link">stack</a></li>
+                <li><a href="#contact" class="nav-link">kontakt</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">◐</span>
+            </button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">// portfolio_2025</div>
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="Kacper">Kacper</span>
+                    <span class="glitch" data-text="Rogoś">Rogoś</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-effect">frontend_developer</span>
+                    <span class="cursor">|</span>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Zobacz_projekty</a>
+                    <a href="#contact" class="btn btn-secondary">Kontakt</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01.</span>
+                <h2 class="section-title">O_mnie</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Jestem początkującym programistą z solidnymi podstawami frameworków frontendowych, ze szczególnym naciskiem na Angular. Swoją przygodę z technologią rozpocząłem w grupie robotycznej, gdzie rozwinąłem umiejętność pracy zespołowej oraz zdolność do działania pod presją — między innymi podczas międzynarodowych zawodów FIRST w Turcji. Zdobyte doświadczenie praktyczne uzupełniłem o staż w firmie Monogo, gdzie pracowałem z frameworkiem React w realnym środowisku projektowym. Nieustannie poszerzam swoje kompetencje i dążę do pozycji specjalisty frontend.</p>
+                    <div class="experience-section">
+                        <div class="experience-header">
+                            <span class="detail-label">Wykształcenie:</span>
+                        </div>
+                        <div class="experience-list">
+                            <div class="experience-item">
+                                <button class="experience-toggle" aria-expanded="false">
+                                    <span class="exp-arrow">▶</span>
+                                    <span class="exp-title">Uniwersytet Vizja</span>
+                                </button>
+                                <div class="experience-body" hidden>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Kierunek:</span>
+                                        <span class="exp-value">Inżynieria Informatyczna</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Specjalizacja:</span>
+                                        <span class="exp-value">Aplikacje Internetowe</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Okres:</span>
+                                        <span class="exp-value">2024 - obecnie</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Miejsce:</span>
+                                        <span class="exp-value">ul. Okopowa 59, 01-043 Warszawa</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <button class="experience-toggle" aria-expanded="false">
+                                    <span class="exp-arrow">▶</span>
+                                    <span class="exp-title">Technikum New Technology</span>
+                                </button>
+                                <div class="experience-body" hidden>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Kierunek:</span>
+                                        <span class="exp-value">Programista</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Okres:</span>
+                                        <span class="exp-value">2019 - 2024</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Miejsce:</span>
+                                        <span class="exp-value">ul. Szczebrzeska 102b, 22-400 Zamość</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-header">
+                            <span class="detail-label">Doświadczenie:</span>
+                        </div>
+                        <div class="experience-list">
+                            <div class="experience-item">
+                                <button class="experience-toggle" aria-expanded="false">
+                                    <span class="exp-arrow">▶</span>
+                                    <span class="exp-title">Programista Monogo</span>
+                                </button>
+                                <div class="experience-body" hidden>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Rodzaj:</span>
+                                        <span class="exp-value">Praktyki zawodowe</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Okres:</span>
+                                        <span class="exp-value">10.2024 - 11.2024</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Miejsce:</span>
+                                        <span class="exp-value">ul. Nałęczowska 14, 20-701 Lublin</span>
+                                    </div>
+                                    <div class="exp-divider"></div>
+                                    <div class="exp-summary">
+                                        <span class="exp-summary-label">Podsumowanie</span>
+                                        <p class="exp-summary-text">W trakcie praktyk w firmie Monogo miałem okazję współpracować z różnymi działami, aktywnie angażując się w realizację bieżących zadań. Pracowałem z frameworkiem React, tworząc komponenty interfejsu użytkownika. Doświadczenie to pozwoliło mi rozwinąć umiejętność pracy zespołowej oraz zdolność do kreatywnego rozwiązywania problemów w dynamicznym środowisku zawodowym.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-item">
+                                <button class="experience-toggle" aria-expanded="false">
+                                    <span class="exp-arrow">▶</span>
+                                    <span class="exp-title">Programista/automatyk</span>
+                                </button>
+                                <div class="experience-body" hidden>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Rodzaj:</span>
+                                        <span class="exp-value">Programista/automatyk w grupie robotycznej New Technology Technikum</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Okres:</span>
+                                        <span class="exp-value">2019-2023</span>
+                                    </div>
+                                    <div class="exp-detail">
+                                        <span class="exp-label">Miejsce:</span>
+                                        <span class="exp-value">ul. Szczebrzeska 102b, 22-400 Zamość</span>
+                                    </div>
+                                    <div class="exp-divider"></div>
+                                    <div class="exp-summary">
+                                        <span class="exp-summary-label">Podsumowanie</span>
+                                        <p class="exp-summary-text">W ramach działalności w szkolnej grupie robotycznej New Technology Technikum w Zamościu brałem udział w międzynarodowych zawodach robotycznych FIRST w Turcji. Współpracowałem przy konstruowaniu robota oraz sporządzałem dokumentację techniczną dotyczącą maszyn startujących w zawodach. W celu podniesienia kompetencji programistycznych i technicznych uczestniczyłem również w wyjeździe szkoleniowym na Politechnikę Świętokrzyską.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">→</div>
+                            <span>Adaptacja do nowych technologii</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">→</div>
+                            <span>Umiejętność pracy w zespole</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">→</div>
+                            <span>Znajomość dobrych praktyk</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">→</div>
+                            <span>Dociekliwość i chęć nauki</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02.</span>
+                <h2 class="section-title">Projekty</h2>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">001</div>
+                        <div class="project-tech live">🟢 LIVE (in progress)</div>
+                    </div>
+                    <h3 class="project-title">CS2 Market — Menedżer Ekwipunku</h3>
+                    <p class="project-description">
+                        Aplikacja do zarządzania ekwipunkiem Steam z podglądem aktualnych cen skinów CS2. 
+                        Po zalogowaniu użytkownik importuje swój inwentarz, śledzi wartość portfela oraz 
+                        dzienne zmiany cen. Oferuje wyszukiwarkę skinów, zestawienie najpopularniejszych 
+                        przedmiotów w obrocie oraz asystenta AI doradzającego przy sprzedaży i zakupach.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">API</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">Netlify</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://cs2-market.netlify.app/" class="project-link" target="_blank">Zobacz Live →</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">002</div>
+                        <div class="project-tech live">🟢 LIVE</div>
+                    </div>
+                    <h3 class="project-title">WeatherNow - Aplikacja Pogodowa</h3>
+                    <p class="project-description">
+                        Interaktywna aplikacja pogodowa z real-time danymi z OpenWeatherMap API. 
+                        Geolokalizacja, prognoza godzinowa i 5-dniowa, piękny design z gradientami i animacjami.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/weather-app/index.html" class="project-link" target="_blank">Zobacz Live →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03.</span>
+                <h2 class="section-title">Tech_Stack</h2>
+            </div>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3 class="category-title">// Frontend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item skill-advanced">
+                            <span class="skill-name">HTML & CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-advanced">
+                            <span class="skill-name">Angular</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-intermediate">
+                            <span class="skill-name">React</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-advanced">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">// Backend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item skill-intermediate">
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-basic">
+                            <span class="skill-name">PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">// Database</h3>
+                    <div class="skills-list">
+                        <div class="skill-item skill-advanced">
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-advanced">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">// Inne</h3>
+                    <div class="skills-list">
+                        <div class="skill-item skill-basic">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 55%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item skill-intermediate">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <h3 class="category-title">// Certyfikaty</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-info">
+                            <span class="cert-name">Projektowanie witryn internetowych</span>
+                            <span class="cert-desc">Kurs internetowy</span>
+                        </div>
+                        <a href="https://navoica.pl/certificates/3a1166a33f8846a99aa24c3fbdfc0154" class="cert-link" target="_blank">Certyfikat →</a>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-info">
+                            <span class="cert-name">INF.03 — Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych</span>
+                            <span class="cert-desc">Dyplom zawodowy</span>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-info">
+                            <span class="cert-name">INF.04 — Projektowanie, programowanie i testowanie aplikacji</span>
+                            <span class="cert-desc">Dyplom zawodowy</span>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-info">
+                            <span class="cert-name">Egzamin maturalny</span>
+                            <span class="cert-desc">Egzamin dojrzałości</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04.</span>
+                <h2 class="section-title">Kontakt</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-heading">Zainteresowany współpracą?</h3>
+                    <p class="contact-text">
+                        Jestem otwarty na nowe możliwości i ciekawe projekty. 
+                        Jeśli szukasz programisty frontendowego, skontaktuj się ze mną!
+                    </p>
+                    <div class="contact-methods">
+                        <a href="/cdn-cgi/l/email-protection#295b464e465a42484a594c5b694e44484045074a4644" class="contact-method">
+                            <div class="method-details">
+                                <div class="method-label">Email</div>
+                                <div class="method-value"><span class="__cf_email__" data-cfemail="32405d555d4159535142574072555f535b5e1c515d5f">[email&#160;protected]</span></div>
+                            </div>
+                        </a>
+                        <a href="tel:+48665891434" class="contact-method">
+                            <div class="method-details">
+                                <div class="method-label">Telefon</div>
+                                <div class="method-value">+48 665-891-434</div>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="method-details">
+                                <div class="method-label">Lokalizacja</div>
+                                <div class="method-value">Krasnystaw, Polska</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kacper-rogo%C5%9B-0bb646256/" class="social-link social-link--labeled" aria-label="LinkedIn" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Imię</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Wiadomość</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Wyślij_wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2026 Kacper Rogoś</p>
+                <div class="footer-tech">
+                    <span>HTML</span>
+                    <span>•</span>
+                    <span>CSS</span>
+                    <span>•</span>
+                    <span>JavaScript</

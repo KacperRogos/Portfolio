@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Śledzenie cen kryptowalut w czasie rzeczywistym">
+    <title>CryptoTracker | Ceny Kryptowalut</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background -->
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="url(#grad1)" stroke-width="2"/>
+                        <path d="M20 8v24M12 20h16" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#f59e0b"/>
+                                <stop offset="100%" stop-color="#ef4444"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1>CryptoTracker</h1>
+                </div>
+                <div class="market-status">
+                    <span class="status-dot"></span>
+                    <span>Live Market</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="crypto">💰 Krypto</button>
+                    <button class="tab-btn" data-tab="commodities">⚡ Surowce</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="currency-selector">
+                    <select id="currencySelect">
+                        <option value="usd">USD $</option>
+                        <option value="eur">EUR €</option>
+                        <option value="pln" selected>PLN zł</option>
+                    </select>
+                </div>
+                <button class="btn-icon" id="refreshBtn" title="Odśwież">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 4v6h6M19 16v-6h-6"/>
+                        <path d="M19.91 9A8 8 0 1 0 14 3.5M1.09 11A8 8 0 1 0 6 16.5"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Market Overview -->
+        <section class="market-overview">
+            <div class="overview-card">
+                <div class="overview-label">Market Cap</div>
+                <div class="overview-value" id="totalMarketCap">$0</div>
+                <div class="overview-change positive" id="marketCapChange">+0%</div>
+            </div>
+            <div class="overview-card">
+                <div class="overview-label">24h Volume</div>
+                <div class="overview-value" id="total24hVolume">$0</div>
+                <div class="overview-change" id="volumeChange">+0%</div>
+            </div>
+            <div class="overview-card">
+                <div class="overview-label">BTC Dominance</div>
+                <div class="overview-value" id="btcDominance">0%</div>
+            </div>
+            <div class="overview-card">
+                <div class="overview-label">Active Coins</div>
+                <div class="overview-value" id="activeCoins">0</div>
+            </div>
+        </section>
+
+        <!-- Search & Filter -->
+        <section class="search-section">
+            <div class="search-bar">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="9" r="7"/>
+                    <path d="M14 14l5 5"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Szukaj kryptowaluty...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Wszystkie</button>
+                <button class="filter-btn" data-filter="favorites">⭐ Ulubione</button>
+                <button class="filter-btn" data-filter="gainers">📈 Wzrosty</button>
+                <button class="filter-btn" data-filter="losers">📉 Spadki</button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Ładowanie danych...</p>
+        </div>
+
+        <!-- Crypto Table -->
+        <section class="crypto-table-section" id="cryptoSection">
+            <div class="table-container">
+                <table class="crypto-table" id="cryptoTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nazwa</th>
+                            <th>Cena</th>
+                            <th>24h %</th>
+                            <th>7d %</th>
+                            <th>Market Cap</th>
+                            <th>Volume (24h)</th>
+                            <th>Wykres (7d)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cryptoTableBody">
+                        <!-- Rows will be added by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Commodities Section -->
+        <section class="commodities-section" id="commoditiesSection" style="display: none;">
+            <!-- Commodities Cards -->
+            <div class="commodities-grid" id="commoditiesGrid">
+                <!-- Cards will be added by JavaScript -->
+            </div>
+
+            <!-- News Section -->
+            <div class="news-section">
+                <div class="news-header-wrapper">
+                    <h2 class="section-title">📰 Najnowsze Wiadomości o Surowcach</h2>
+                    <button class="btn-news-toggle" id="btnNewsToggle">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12v5h12v-5M12 3v10m0 0l-4-4m4 4l4-4"/>
+                        </svg>
+                        <span id="btnNewsText">Wyświetl informacje</span>
+                    </button>
+                </div>
+                
+                <div class="news-container" id="newsContainer">
+                    <div class="news-placeholder" id="newsPlaceholder">
+                        <div class="placeholder-icon">📰</div>
+                        <p>Kliknij "Wyświetl informacje" aby zobaczyć najnowsze wiadomości o surowcach</p>
+                    </div>
+                    
+                    <div class="news-grid" id="newsGrid" style="display: none;">
+                        <!-- News cards will be added here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TradingView Charts -->
+            <div class="charts-section">
+                <h2 class="section-title">📊 Wykresy Giełdowe</h2>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Złoto (XAUUSD)</h3>
+                            <div class="tradingview-widget-container">
+                                <div id="tradingview_gold"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Ropa WTI</h3>
+                            <div class="tradingview-widget-container">
+                                <div id="tradingview_oil"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Srebro (XAGUSD)</h3>
+                            <div class="tradingview-widget-container">
+                                <div id="tradingview_silver"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Gaz Ziemny</h3>
+                            <div class="tradingview-widget-container">
+                                <div id="tradingview_gas"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Crypto Detail Modal -->
+        <div class="modal" id="cryptoModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-header">
+                    <img id="modalIcon" src="" alt="" class="modal-coin-icon">
+                    <div>
+                        <h2 id="modalName">Bitcoin</h2>
+                        <span id="modalSymbol" class="modal-symbol">BTC</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-price-section">
+                        <div class="modal-current-price">
+                            <span class="modal-price-label">Cena aktualna</span>
+                            <span class="modal-price" id="modalPrice">$0</span>
+                            <span class="modal-change" id="modalChange">+0%</span>
+                        </div>
+                    </div>
+                    <div class="modal-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Market Cap</span>
+                            <span class="stat-value" id="modalMarketCap">$0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Volume (24h)</span>
+                            <span class="stat-value" id="modalVolume">$0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Circulating Supply</span>
+                            <span class="stat-value" id="modalSupply">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">All Time High</span>
+                            <span class="stat-value" id="modalATH">$0</span>
+                        </div>
+                    </div>
+                    <div class="modal-chart">
+                        <canvas id="modalChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Dane z <a href="https://coingecko.com" target="_blank">CoinGecko API</a> • Odświeżanie co 60s</p>
+            <p class="back-link"><a href="../index.html">← Powrót do portfolio</a></p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
