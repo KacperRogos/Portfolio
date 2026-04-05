@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="nav-logo">KR</div>
+            <div class="nav-logo" id="navLogo">KR</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">start</a></li>
                 <li><a href="#about" class="nav-link">o_mnie</a></li>
@@ -397,10 +398,10 @@
                         Jeśli szukasz programisty frontendowego, skontaktuj się ze mną!
                     </p>
                     <div class="contact-methods">
-                        <a href="/cdn-cgi/l/email-protection#295b464e465a42484a594c5b694e44484045074a4644" class="contact-method">
+                        <a href="mailto:rogoskacper@gmail.com" class="contact-method">
                             <div class="method-details">
                                 <div class="method-label">Email</div>
-                                <div class="method-value"><span class="__cf_email__" data-cfemail="32405d555d4159535142574072555f535b5e1c515d5f">[email&#160;protected]</span></div>
+                                <div class="method-value">rogoskacper@gmail.com</div>
                             </div>
                         </a>
                         <a href="tel:+48665891434" class="contact-method">
@@ -458,4 +459,13 @@
                     <span>•</span>
                     <span>CSS</span>
                     <span>•</span>
-                    <span>JavaScript</
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('pZ6yj6lBN4JBuPZik');</script>
+    <script src="script.js"></script>
+</body>
+</html>

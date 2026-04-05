@@ -291,3 +291,108 @@ document.querySelectorAll('.experience-toggle').forEach(btn => {
         }
     });
 });
+
+// Admin Panel
+const SECRET_HASH = 'kacper2025';
+
+function checkSecretAccess() {
+    const hash = window.location.hash.replace('#', '');
+    const logo = document.getElementById('navLogo');
+    if (!logo) return;
+
+    if (hash === SECRET_HASH) {
+        logo.style.cursor = 'pointer';
+        logo.style.color = '#00ff88';
+        logo.title = 'Wyślij portfolio';
+        logo.addEventListener('click', openAdminModal);
+    }
+}
+
+function openAdminModal() {
+    if (document.getElementById('adminModal')) return;
+
+    const modal = document.createElement('div');
+    modal.id = 'adminModal';
+    modal.style.cssText = `
+        position: fixed; inset: 0; z-index: 99999;
+        background: rgba(0,0,0,0.85);
+        display: flex; align-items: center; justify-content: center;
+    `;
+    modal.innerHTML = `
+        <div style="
+            background: #0a0a0a; border: 1px solid #00ff88;
+            padding: 2rem; width: 360px; font-family: 'JetBrains Mono', monospace;
+        ">
+            <div style="color:#00ff88; font-size:13px; margin-bottom:1.5rem;">// wyślij_link_do_portfolio</div>
+            <label style="color:#888; font-size:12px; display:block; margin-bottom:6px;">Email odbiorcy:</label>
+            <input id="adminEmailInput" type="email" placeholder="rekruter@firma.pl" style="
+                width: 100%; box-sizing: border-box;
+                background: #111; border: 1px solid #333; color: #fff;
+                padding: 10px 12px; font-family: inherit; font-size: 14px;
+                outline: none; margin-bottom: 1rem;
+            "/>
+            <div id="adminStatus" style="font-size:12px; min-height:18px; margin-bottom:1rem;"></div>
+            <div style="display:flex; gap:10px;">
+                <button id="adminSendBtn" style="
+                    flex:1; background: #00ff88; color: #000;
+                    border: none; padding: 10px; font-family: inherit;
+                    font-size: 13px; font-weight: 700; cursor: pointer;
+                ">Wyślij_mail →</button>
+                <button onclick="document.getElementById('adminModal').remove()" style="
+                    background: transparent; border: 1px solid #333; color: #888;
+                    padding: 10px 16px; font-family: inherit; font-size: 13px; cursor: pointer;
+                ">✕</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+
+    document.getElementById('adminSendBtn').addEventListener('click', sendPortfolioEmail);
+}
+
+async function sendPortfolioEmail() {
+    const email = document.getElementById('adminEmailInput').value.trim();
+    const status = document.getElementById('adminStatus');
+    const btn = document.getElementById('adminSendBtn');
+
+    if (!email || !email.includes('@')) {
+        status.style.color = '#ff4444';
+        status.textContent = '✗ Podaj poprawny adres email';
+        return;
+    }
+
+    btn.textContent = 'Wysyłanie...';
+    btn.disabled = true;
+    status.style.color = '#888';
+    status.textContent = '';
+
+    try {
+        await emailjs.send(
+            'service_6ih7fsr',
+            'template_7ybcv9x',
+            { to_email: email }
+        );
+
+        status.style.color = '#00ff88';
+        status.textContent = `✓ Wysłano do ${email}`;
+        btn.textContent = '✓ Wysłano!';
+        document.getElementById('adminEmailInput').value = '';
+        setTimeout(() => {
+            btn.textContent = 'Wyślij_mail →';
+            btn.disabled = false;
+        }, 3000);
+
+    } catch (err) {
+        status.style.color = '#ff4444';
+        status.textContent = '✗ Błąd — spróbuj ponownie';
+        btn.textContent = 'Wyślij_mail →';
+        btn.disabled = false;
+    }
+}
+
+checkSecretAccess();
+window.addEventListener('hashchange', checkSecretAccess);
