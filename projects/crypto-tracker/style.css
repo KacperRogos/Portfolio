@@ -259,6 +259,10 @@ body {
     transform: rotate(180deg);
 }
 
+.btn-icon.spinning svg {
+    animation: spin 0.8s linear infinite;
+}
+
 /* Market Overview */
 .market-overview {
     display: grid;
