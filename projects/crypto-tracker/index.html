@@ -43,8 +43,8 @@
             </div>
             <div class="header-center">
                 <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="crypto">💰 Krypto</button>
-                    <button class="tab-btn" data-tab="commodities">⚡ Surowce</button>
+                    <button class="tab-btn active" data-tab="crypto">Krypto</button>
+                    <button class="tab-btn" data-tab="commodities">Surowce</button>
                 </div>
             </div>
             <div class="header-right">
@@ -97,9 +97,9 @@
             </div>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Wszystkie</button>
-                <button class="filter-btn" data-filter="favorites">⭐ Ulubione</button>
-                <button class="filter-btn" data-filter="gainers">📈 Wzrosty</button>
-                <button class="filter-btn" data-filter="losers">📉 Spadki</button>
+                <button class="filter-btn" data-filter="favorites">Ulubione</button>
+                <button class="filter-btn" data-filter="gainers">Wzrosty</button>
+                <button class="filter-btn" data-filter="losers">Spadki</button>
             </div>
         </section>
 
@@ -126,9 +126,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="cryptoTableBody">
-                        <!-- Rows will be added by JavaScript -->
-                    </tbody>
+                    <tbody id="cryptoTableBody"></tbody>
                 </table>
             </div>
         </section>
@@ -136,14 +134,12 @@
         <!-- Commodities Section -->
         <section class="commodities-section" id="commoditiesSection" style="display: none;">
             <!-- Commodities Cards -->
-            <div class="commodities-grid" id="commoditiesGrid">
-                <!-- Cards will be added by JavaScript -->
-            </div>
+            <div class="commodities-grid" id="commoditiesGrid"></div>
 
             <!-- News Section -->
             <div class="news-section">
                 <div class="news-header-wrapper">
-                    <h2 class="section-title">📰 Najnowsze Wiadomości o Surowcach</h2>
+                    <h2 class="section-title">Najnowsze Wiadomości o Surowcach</h2>
                     <button class="btn-news-toggle" id="btnNewsToggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 12v5h12v-5M12 3v10m0 0l-4-4m4 4l4-4"/>
@@ -154,19 +150,17 @@
                 
                 <div class="news-container" id="newsContainer">
                     <div class="news-placeholder" id="newsPlaceholder">
-                        <div class="placeholder-icon">📰</div>
+                        <div class="placeholder-icon">&#9432;</div>
                         <p>Kliknij "Wyświetl informacje" aby zobaczyć najnowsze wiadomości o surowcach</p>
                     </div>
                     
-                    <div class="news-grid" id="newsGrid" style="display: none;">
-                        <!-- News cards will be added here by JavaScript -->
-                    </div>
+                    <div class="news-grid" id="newsGrid" style="display: none;"></div>
                 </div>
             </div>
 
             <!-- TradingView Charts -->
             <div class="charts-section">
-                <h2 class="section-title">📊 Wykresy Giełdowe</h2>
+                <h2 class="section-title">Wykresy Giełdowe</h2>
                     <div class="charts-grid">
                         <div class="chart-card">
                             <h3>Złoto (XAUUSD)</h3>
@@ -242,7 +236,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Dane z <a href="https://coingecko.com" target="_blank">CoinGecko API</a> • Odświeżanie co 60s</p>
+            <p>Dane z <a href="https://coingecko.com" target="_blank">CoinGecko API</a> • Odświeżanie co 90s</p>
             <p class="back-link"><a href="../index.html">← Powrót do portfolio</a></p>
         </footer>
     </div>
