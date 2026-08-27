@@ -12,16 +12,13 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Background Animation -->
     <div class="background-animation">
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
     </div>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <div class="logo">
                 <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -33,7 +30,6 @@
             <div class="current-time" id="currentTime"></div>
         </header>
 
-        <!-- Search Section -->
         <section class="search-section">
             <div class="search-container">
                 <input 
@@ -59,13 +55,11 @@
             <div class="search-suggestions" id="suggestions"></div>
         </section>
 
-        <!-- Loading Spinner -->
         <div class="loading" id="loading">
             <div class="spinner"></div>
             <p>Pobieranie danych pogodowych...</p>
         </div>
 
-        <!-- Error Message -->
         <div class="error-message" id="errorMessage">
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
                 <circle cx="25" cy="25" r="20" stroke="#ff4444" stroke-width="2"/>
@@ -76,9 +70,7 @@
             <button class="retry-btn" id="retryBtn">Spróbuj ponownie</button>
         </div>
 
-        <!-- Weather Display -->
         <div class="weather-container" id="weatherContainer">
-            <!-- Current Weather -->
             <section class="current-weather">
                 <div class="location-info">
                     <h2 class="city-name" id="cityName">Warszawa</h2>
@@ -137,23 +129,18 @@
                 </div>
             </section>
 
-            <!-- Hourly Forecast -->
             <section class="hourly-forecast">
                 <h3 class="section-title">Prognoza godzinowa</h3>
                 <div class="hourly-scroll" id="hourlyForecast">
-                    <!-- Będzie wypełnione przez JavaScript -->
                 </div>
             </section>
 
-            <!-- 5-Day Forecast -->
             <section class="daily-forecast">
                 <h3 class="section-title">Prognoza 5-dniowa</h3>
                 <div class="daily-grid" id="dailyForecast">
-                    <!-- Będzie wypełnione przez JavaScript -->
                 </div>
             </section>
 
-            <!-- Additional Info -->
             <section class="additional-info">
                 <div class="info-card">
                     <h4>🌅 Wschód słońca</h4>
@@ -163,14 +150,9 @@
                     <h4>🌇 Zachód słońca</h4>
                     <p class="info-value" id="sunset">18:45</p>
                 </div>
-                <div class="info-card">
-                    <h4>☀️ Indeks UV</h4>
-                    <p class="info-value" id="uvIndex">5 (Średni)</p>
-                </div>
             </section>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <p>Dane pogodowe z <a href="https://openweathermap.org" target="_blank">OpenWeatherMap API</a></p>
             <p class="back-link"><a href="../index.html">← Powrót do portfolio</a></p>

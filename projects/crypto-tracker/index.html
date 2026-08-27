@@ -12,16 +12,13 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Background -->
     <div class="background">
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
     </div>
 
-    <!-- Container -->
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <div class="logo">
@@ -65,7 +62,6 @@
             </div>
         </header>
 
-        <!-- Market Overview -->
         <section class="market-overview">
             <div class="overview-card">
                 <div class="overview-label">Market Cap</div>
@@ -87,7 +83,6 @@
             </div>
         </section>
 
-        <!-- Search & Filter -->
         <section class="search-section">
             <div class="search-bar">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -104,13 +99,11 @@
             </div>
         </section>
 
-        <!-- Loading Spinner -->
         <div class="loading" id="loading">
             <div class="spinner"></div>
             <p>Ładowanie danych...</p>
         </div>
 
-        <!-- Crypto Table -->
         <section class="crypto-table-section" id="cryptoSection">
             <div class="table-container">
                 <table class="crypto-table" id="cryptoTable">
@@ -132,34 +125,9 @@
             </div>
         </section>
 
-        <!-- Commodities Section -->
         <section class="commodities-section" id="commoditiesSection" style="display: none;">
-            <!-- Commodities Cards -->
             <div class="commodities-grid" id="commoditiesGrid"></div>
 
-            <!-- News Section -->
-            <div class="news-section">
-                <div class="news-header-wrapper">
-                    <h2 class="section-title">Najnowsze Wiadomości o Surowcach</h2>
-                    <button class="btn-news-toggle" id="btnNewsToggle">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 12v5h12v-5M12 3v10m0 0l-4-4m4 4l4-4"/>
-                        </svg>
-                        <span id="btnNewsText">Wyświetl informacje</span>
-                    </button>
-                </div>
-                
-                <div class="news-container" id="newsContainer">
-                    <div class="news-placeholder" id="newsPlaceholder">
-                        <div class="placeholder-icon">&#9432;</div>
-                        <p>Kliknij "Wyświetl informacje" aby zobaczyć najnowsze wiadomości o surowcach</p>
-                    </div>
-                    
-                    <div class="news-grid" id="newsGrid" style="display: none;"></div>
-                </div>
-            </div>
-
-            <!-- TradingView Charts -->
             <div class="charts-section">
                 <h2 class="section-title">Wykresy Giełdowe</h2>
                     <div class="charts-grid">
@@ -191,7 +159,6 @@
                 </div>
         </section>
 
-        <!-- Crypto Detail Modal -->
         <div class="modal" id="cryptoModal">
             <div class="modal-content">
                 <button class="modal-close" id="modalClose">&times;</button>
@@ -235,7 +202,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <p>Dane z <a href="https://coingecko.com" target="_blank">CoinGecko API</a> • Odświeżanie co 90s</p>
             <p class="back-link"><a href="../index.html">← Powrót do portfolio</a></p>

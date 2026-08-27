@@ -1,9 +1,22 @@
 const CACHE = new Map();
 
 const TTL = {
-  global: 60000,
-  markets: 30000
+  global: 90000,
+  markets: 45000
 };
+
+async function fetchWithServerRetry(url, attempts = 3) {
+  let lastRes = null;
+  for (let i = 0; i < attempts; i++) {
+    const res = await fetch(url);
+    if (res.status !== 429) return res;
+    lastRes = res;
+    if (i < attempts - 1) {
+      await new Promise(r => setTimeout(r, 1200));
+    }
+  }
+  return lastRes;
+}
 
 exports.handler = async function (event) {
   const params = event.queryStringParameters || {};
@@ -39,7 +52,7 @@ exports.handler = async function (event) {
   const url = `https://api.coingecko.com/api/v3/${path}${forwardParams.toString() ? '?' + forwardParams.toString() : ''}`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetchWithServerRetry(url);
 
     if (!res.ok) {
       if (cached) {
