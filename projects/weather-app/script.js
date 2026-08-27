@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = '895284fb2d2c50a520ea537456963d9c'; // Free OpenWeatherMap API key (demo)
+const API_KEY = 'a6ee8c92a3b978d00acf4fbecae84bf5';
 const API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 // DOM Elements

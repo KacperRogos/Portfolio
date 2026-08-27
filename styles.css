@@ -8,6 +8,8 @@
     --text-tertiary: #666666;
     --accent-primary: #00ff88;
     --accent-secondary: #00cc6f;
+    --accent-error: #8b0000;
+    --accent-error-light: #ff4d4d;
     --accent-glow: rgba(0, 255, 136, 0.3);
     --border-color: #222222;
     --shadow-color: rgba(0, 255, 136, 0.1);
@@ -39,6 +41,7 @@ body.light-theme {
     --text-tertiary: #8a8a8a;
     --accent-primary: #00bb66;
     --accent-secondary: #009955;
+    --accent-third: #770000;
     --accent-glow: rgba(0, 187, 102, 0.2);
     --border-color: #dddddd;
     --shadow-color: rgba(0, 187, 102, 0.1);
@@ -554,13 +557,16 @@ section {
     animation: pulse 2s infinite;
 }
 
+.project-tech.offlive {
+    background-color: var(--accent-error);
+    color: #ffffff; 
+    border-color: var(--accent-error);
+    animation: pulse 2s infinite;
+}
+
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
+    0%, 100% { opacity: 1; box-shadow: 0 0 0px rgba(139, 0, 0, 0); }
+    50% { opacity: 0.8; box-shadow: 0 0 10px rgba(139, 0, 0, 0.4); }
 }
 
 .project-title {

@@ -1,5 +1,5 @@
-// CoinGecko API
-const API_BASE = 'https://api.coingecko.com/api/v3';
+// Własny proxy przez Netlify Functions (omija CORS i limity CoinGecko)
+const API_BASE = '/.netlify/functions/coingecko';
 
 // State
 let allCoins = [];
@@ -34,7 +34,7 @@ let modalMarketCap, modalVolume, modalSupply, modalATH;
 // Pobiera aktualne kursy walut
 async function fetchExchangeRates() {
     try {
-        const res = await fetch('https://api.frankfurter.app/latest?from=USD&to=EUR,PLN');
+        const res = await fetch('/.netlify/functions/rates');
         if (!res.ok) throw new Error('Exchange rate fetch failed');
         const data = await res.json();
         exchangeRates.eur = data.rates.EUR;
@@ -161,11 +161,11 @@ async function loadMarketData() {
     try {
         showLoading();
 
-        const global = await fetchWithRetry(`${API_BASE}/global`);
+        const global = await fetchWithRetry(`${API_BASE}?endpoint=global`);
         updateMarketOverview(global.data);
 
         const coinsData = await fetchWithRetry(
-            `${API_BASE}/coins/markets?vs_currency=${currentCurrency}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h,7d`
+            `${API_BASE}?endpoint=markets&vs_currency=${currentCurrency}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h,7d`
         );
 
         if (!Array.isArray(coinsData)) {
