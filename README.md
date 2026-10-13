@@ -1,4 +1,4 @@
-Kacper Rogóż
+Kacper Rogoś
 
 Portfolio prezentujące moje doświadczenie, projekty oraz umiejętności związane z tworzeniem nowoczesnych aplikacji webowych.
 
