@@ -662,6 +662,13 @@ section {
     color: var(--text-primary);
 }
 
+.skill-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 .skill-bar {
     height: 8px;
     background-color: var(--bg-primary);
