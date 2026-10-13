@@ -299,6 +299,7 @@ body.light-theme .nav {
 
 .hero-cta {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
     animation: fadeInUp 1s ease 0.6s backwards;
 }
